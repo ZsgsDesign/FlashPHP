@@ -394,24 +394,7 @@ class View{
 		include $complied_file;
 		
 		$output=ob_get_clean();
-
-		// PB PROXY 
 		
-        $PB_DOMAIN=CONFIG::GET("PB_DOMAIN");
-        $PB_CDN=CONFIG::GET("PB_CDN");
-        if(isset($_SERVER["HTTP_PB_DOMAIN"])) $PB_DOMAIN=$_SERVER["HTTP_PB_DOMAIN"];
-        if(isset($_SERVER["HTTP_PB_STATIC"])) $PB_CDN=$_SERVER["HTTP_PB_STATIC"];
-
-		$pattern_map = array(
-			'https:\/\/static.1cf.co'=> $PB_CDN,
-			'https:\/\/mundb.xyz'=> $PB_DOMAIN,
-			'https:\/\/www.mundb.xyz'=> $PB_DOMAIN,
-		);
-		$pattern = $replacement = array();
-		foreach($pattern_map as $p => $r){
-			$pattern = "/$p/i";
-			$output = preg_replace($pattern, $r, $output);
-		}
 		return $output;
 	} 
 	
