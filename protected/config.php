@@ -10,7 +10,7 @@ $config = array(
 );
 
 $domain = array(
-    "www.flash.php" => array( // 调试配置
+    "127.0.0.1" => array( // 调试配置
         'debug' => 1,
         'maintain' => 0,
         'mysql' => array(
